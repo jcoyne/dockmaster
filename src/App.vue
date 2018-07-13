@@ -2,25 +2,39 @@
   <div id="app">
     <header>
       <h1>Sailboat assignments for 7/19/2018
-      <button v-on:click="openModal">Add sailor</button>
+      <el-button type="primary" @click="dialogVisible = true">Add sailor</el-button>
       </h1>
     </header>
     <SailorList/>
     <BoatList/>
 
     <!-- The Modal -->
-    <div id="myModal" class="modal">
-
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close" v-on:click="closeModal">&times;</span>
-
-        <label for="name">Name</label><input name="name">
-        <label for="role">Role</label><select name="role"><option>Crew</option><option>Skipper</option></select>
-        <label for="preference">Boat preference</label><select name="preference"><option>Daysailer</option><option>MC</option><option>Vic18</option><option>Any</option></select>
-      </div>
-
-    </div>
+    <el-dialog
+      :visible.sync="dialogVisible">
+      <el-form ref="form" :model="form" label-width="120px">
+        <el-form-item label="Sailor name">
+          <el-input v-model="form.name"></el-input>
+        </el-form-item>
+        <el-form-item label="Role">
+          <el-select v-model="form.role" placeholder="please select your role">
+            <el-option label="Crew" value="Crew"></el-option>
+            <el-option label="Skipper" value="Skipper"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="Boat preference">
+          <el-select v-model="form.preference" placeholder="please select your boat preference">
+            <el-option label="Daysailer" value="Daysailer"></el-option>
+            <el-option label="MC" value="MC"></el-option>
+            <el-option label="Vic18" value="Vic18"></el-option>
+            <el-option label="No preference" value="Any"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="onSubmit">Add</el-button>
+          <el-button>Cancel</el-button>
+        </el-form-item>
+      </el-form>
+    </el-dialog>
   </div>
 </template>
 
@@ -34,17 +48,30 @@ export default {
     BoatList,
     SailorList
   },
-  methods: {
-    openModal: function (event) {
-      // Get the modal
-      var modal = document.getElementById('myModal');
-      modal.style.display = "block";
-    },
-    closeModal: function (event) {
-      // Get the modal
-      var modal = document.getElementById('myModal');
-      modal.style.display = "none";
+  data() {
+    return {
+      dialogVisible: false,
+      form: {
+          name: '',
+          role: '',
+          preference: ''
+      }
     }
+  },
+  methods: {
+    onSubmit: function (event) {
+      alert("save sailor")
+      this.dialogVisible = false
+      this.clearForm();
+    },
+    clearForm: function() {
+      this.form = {
+        name: '',
+        role: '',
+        preference: ''
+      }
+    }
+
   }
 }
 </script>
@@ -86,44 +113,6 @@ ul.items {
   text-align: left;
   list-style: none;
   background-color: lightgray;
-}
-
-/* The Modal (background) */
-.modal {
-   display: none; /* Hidden by default */
-   position: fixed; /* Stay in place */
-   z-index: 1; /* Sit on top */
-   left: 0;
-   top: 0;
-   width: 100%; /* Full width */
-   height: 100%; /* Full height */
-   overflow: auto; /* Enable scroll if needed */
-   background-color: rgb(0,0,0); /* Fallback color */
-   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-   background-color: #fefefe;
-   margin: 15% auto; /* 15% from the top and centered */
-   padding: 20px;
-   border: 1px solid #888;
-   width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-   color: #aaa;
-   float: right;
-   font-size: 28px;
-   font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-   color: black;
-   text-decoration: none;
-   cursor: pointer;
 }
 
 </style>
