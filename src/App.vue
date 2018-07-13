@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <header><h1>Sailboat assignments for 7/19/2018</h1></header>
+    <header><h1>Sailboat assignments for 7/19/2018 <button>Add sailor</button></h1>
+    </header>
     <SailorList/>
     <BoatList/>
   </div>

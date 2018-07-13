@@ -1,56 +1,10 @@
 <template>
   <div class="boats">
     <ul class="items">
-      <li>
-        76. Safina (Daysailer)
-      </li>
-      <li>
-        77. Naked Ankles (Daysailer)
-      </li>
-      <li>
-        79. Short Pants (Daysailer)
-      </li>
-      <li>
-        112. TBD (Daysailer)
-      </li>
-      <li>
-        114. Clamdigger (Daysailer)
-      </li>
-      <li>
-        53. Priority (MC)
-      </li>
-      <li>
-        53. Trouble (MC)
-      </li>
-      <li>
-        53. Chill (MC)
-      </li>
-      <li>
-        53. Priority (MC)
-      </li>
-      <li>
-        53. Trouble (MC)
-      </li>
-      <li>
-        53. Chill (MC)
-      </li>
-      <li>
-        53. Priority (MC)
-      </li>
-      <li>
-        53. Trouble (MC)
-      </li>
-      <li>
-        53. Chill (MC)
-      </li>
-      <li>
-        53. Priority (MC)
-      </li>
-      <li>
-        53. Trouble (MC)
-      </li>
-      <li>
-        53. Fortuna (Vic 18)
+      <li v-for="boat in boats">
+        <span class="buoy">{{boat.buoy}}.</span>&nbsp;
+        <span class="name">{{boat.name}}</span>&nbsp;
+        <span class="type">({{boat.type}})</span>
       </li>
     </ul>
   </div>
@@ -59,8 +13,27 @@
 <script>
 export default {
   name: 'BoatList',
-  props: {
-    msg: String
+  data () {
+    return {
+      json: null
+    }
+  },
+  computed: {
+    boats: function() {
+      if (this.json == null)
+        return []
+      return this.json["boats"]
+    }
+  },
+  created: function () {
+    // `this` points to the vm instance
+    fetch('/boats.json')
+      .then(function (response) {
+        return response.json()
+      })
+      .then((myJson) => {
+        this.json = myJson
+      })
   }
 }
 </script>

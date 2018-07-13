@@ -1,0 +1,124 @@
+{
+  "boats": [
+    {
+      "name": "Safina",
+      "buoy": 76,
+      "capacityMin": 4,
+      "capacityMax": 5,
+      "type": "Daysailer"
+    },
+    {
+      "name": "Naked Ankles",
+      "buoy": 77,
+      "capacityMin": 4,
+      "capacityMax": 5,
+      "type": "Daysailer"
+    },
+    {
+      "name": "Short Pants",
+      "buoy": 79,
+      "capacityMin": 4,
+      "capacityMax": 5,
+      "type": "Daysailer"
+    },
+    {
+      "name": "TBD",
+      "buoy": 112,
+      "capacityMin": 4,
+      "capacityMax": 5,
+      "type": "Daysailer"
+    },
+    {
+      "name": "Clamdigger",
+      "buoy": 114,
+      "capacityMin": 4,
+      "capacityMax": 5,
+      "type": "Daysailer"
+    },
+    {
+      "name": "Priority",
+      "buoy": 53,
+      "capacityMin": 2,
+      "capacityMax": 3,
+      "type": "MC"
+    },
+    {
+      "name": "Priority",
+      "buoy": 53,
+      "capacityMin": 2,
+      "capacityMax": 3,
+      "type": "MC"
+    },
+    {
+      "name": "Priority",
+      "buoy": 53,
+      "capacityMin": 2,
+      "capacityMax": 3,
+      "type": "MC"
+    },
+    {
+      "name": "Priority",
+      "buoy": 53,
+      "capacityMin": 2,
+      "capacityMax": 3,
+      "type": "MC"
+    },
+    {
+      "name": "Priority",
+      "buoy": 53,
+      "capacityMin": 2,
+      "capacityMax": 3,
+      "type": "MC"
+    },
+    {
+      "name": "Priority",
+      "buoy": 53,
+      "capacityMin": 2,
+      "capacityMax": 3,
+      "type": "MC"
+    },
+    {
+      "name": "Priority",
+      "buoy": 53,
+      "capacityMin": 2,
+      "capacityMax": 3,
+      "type": "MC"
+    },
+    {
+      "name": "Priority",
+      "buoy": 53,
+      "capacityMin": 2,
+      "capacityMax": 3,
+      "type": "MC"
+    },
+    {
+      "name": "Priority",
+      "buoy": 53,
+      "capacityMin": 2,
+      "capacityMax": 3,
+      "type": "MC"
+    },
+    {
+      "name": "Priority",
+      "buoy": 53,
+      "capacityMin": 2,
+      "capacityMax": 3,
+      "type": "MC"
+    },
+    {
+      "name": "Priority",
+      "buoy": 53,
+      "capacityMin": 2,
+      "capacityMax": 3,
+      "type": "MC"
+    },
+    {
+      "name": "Priority",
+      "buoy": 53,
+      "capacityMin": 2,
+      "capacityMax": 3,
+      "type": "MC"
+    }
+
+  ]
+}

@@ -1,20 +1,10 @@
 <template>
   <div class="sailors">
     <ul class="items">
-      <li>
-        Justin Coyne (Skipper) (MC)
-      </li>
-      <li>
-        Bob Dole (Crew) (Either)
-      </li>
-      <li>
-        Big Bird (Skipper) (DS)
-      </li>
-      <li>
-        Charlie Rose (Crew)
-      </li>
-      <li>
-        Christoper Kimbal (Crew)
+      <li v-for="sailor in sailors">
+        <span class="name">{{sailor.name}}</span>&nbsp;
+        <span class="role">({{sailor.role}})</span>&nbsp;
+        <span class="role">({{sailor.preference}})</span>
       </li>
     </ul>
   </div>
@@ -23,8 +13,21 @@
 <script>
 export default {
   name: 'SailorList',
-  props: {
-    msg: String
+  data() {
+    return {
+      sailors: [
+        {
+          name: "Justin Coyne",
+          role: "Skipper",
+          preference: "Daysailer"
+        },
+        {
+          name: "Bob Dole",
+          role: "Crew",
+          preference: "Either"
+        },
+      ]
+    }
   }
 }
 </script>
