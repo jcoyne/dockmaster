@@ -13,22 +13,32 @@
 <script>
 export default {
   name: 'SailorList',
-  data() {
-    return {
-      sailors: [
-        {
-          name: "Justin Coyne",
-          role: "Skipper",
-          preference: "Daysailer"
-        },
-        {
-          name: "Bob Dole",
-          role: "Crew",
-          preference: "Either"
-        },
-      ]
+  // data() {
+  //   return {
+  //     sailors: [
+  //       {
+  //         name: "Justin Coyne",
+  //         role: "Skipper",
+  //         preference: "Daysailer"
+  //       },
+  //       {
+  //         name: "Bob Dole",
+  //         role: "Crew",
+  //         preference: "Either"
+  //       },
+  //     ]
+  //   }
+  // },
+  computed: {
+    sailors() {
+      return this.$store.state.sailors
     }
   }
+  // vuex: {
+  //   getters: {
+  //     sailors: state => state.sailors
+  //   },
+  // }
 }
 </script>
 

@@ -11,18 +11,18 @@
     <!-- The Modal -->
     <el-dialog
       :visible.sync="dialogVisible">
-      <el-form ref="form" :model="form" label-width="120px">
+      <el-form ref="form" label-width="120px">
         <el-form-item label="Sailor name">
-          <el-input v-model="form.name"></el-input>
+          <el-input v-model="name"></el-input>
         </el-form-item>
         <el-form-item label="Role">
-          <el-select v-model="form.role" placeholder="please select your role">
+          <el-select v-model="role" placeholder="please select your role">
             <el-option label="Crew" value="Crew"></el-option>
             <el-option label="Skipper" value="Skipper"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="Boat preference">
-          <el-select v-model="form.preference" placeholder="please select your boat preference">
+          <el-select v-model="preference" placeholder="please select your boat preference">
             <el-option label="Daysailer" value="Daysailer"></el-option>
             <el-option label="MC" value="MC"></el-option>
             <el-option label="Vic18" value="Vic18"></el-option>
@@ -41,6 +41,7 @@
 <script>
 import BoatList from './components/BoatList.vue'
 import SailorList from './components/SailorList.vue'
+import { mapFields } from 'vuex-map-fields';
 
 export default {
   name: 'app',
@@ -50,28 +51,24 @@ export default {
   },
   data() {
     return {
-      dialogVisible: false,
-      form: {
-          name: '',
-          role: '',
-          preference: ''
-      }
+      dialogVisible: false
     }
   },
   methods: {
     onSubmit: function (event) {
-      alert("save sailor")
+      this.$store.dispatch('addSailor')
       this.dialogVisible = false
-      this.clearForm();
-    },
-    clearForm: function() {
-      this.form = {
-        name: '',
-        role: '',
-        preference: ''
-      }
     }
-
+  },
+  computed: {
+    activeSailor() {
+      return this.$store.state.activeSailor
+    },
+    ...mapFields([
+      'activeSailor.name',
+      'activeSailor.role',
+      'activeSailor.preference',
+    ])
   }
 }
 </script>
